@@ -135,3 +135,4 @@ C:\Users\La Banda\Desktop\UTN-2024\Prog ll\EFWebApi\obj\Debug\net8.0\refint\EFWe
 C:\Users\La Banda\Desktop\UTN-2024\Prog ll\EFWebApi\obj\Debug\net8.0\EFWebApi.pdb
 C:\Users\La Banda\Desktop\UTN-2024\Prog ll\EFWebApi\obj\Debug\net8.0\EFWebApi.genruntimeconfig.cache
 C:\Users\La Banda\Desktop\UTN-2024\Prog ll\EFWebApi\obj\Debug\net8.0\ref\EFWebApi.dll
+C:\Users\La Banda\Desktop\UTN-2024\Prog ll\EFWebApi\obj\Debug\net8.0\EFWebApi.sourcelink.json

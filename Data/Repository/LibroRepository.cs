@@ -10,6 +10,12 @@ namespace EFWebApi.Data.Repository
         {
             _context = context;
         }
+
+        //public void SetContext(LibrosDbContext context) ////Lo mismo que hacer el constructor
+        //{
+        //    _context = context;
+        //}
+
         public void Create(Libro libro)
         {
             _context.Libros.Add(libro);
@@ -43,7 +49,7 @@ namespace EFWebApi.Data.Repository
             if (libro != null)
             {
                 _context.Libros.Update(libro);
-                _context.SaveChanges();
+                _context.SaveChanges(); 
             }
         }
     }

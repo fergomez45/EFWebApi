@@ -1,5 +1,6 @@
 ﻿using EFWebApi.Data.Models;
 using EFWebApi.Data.Repository;
+using EFWebApi.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,11 +12,11 @@ namespace EFWebApi.Controllers
     [ApiController]
     public class LibrosController : ControllerBase
     {
-        private ILibroRepository _repository;
+        private ILibroService _service;
 
-        public LibrosController(ILibroRepository repository)
+        public LibrosController(ILibroService service)
         {
-            _repository = repository;
+            _service = service;
         }
 
 
@@ -25,7 +26,7 @@ namespace EFWebApi.Controllers
         {
             try
             {
-                return Ok(_repository.GetAll());
+                return Ok(_service.GetAll());
             }
             catch(Exception)
             {
@@ -37,13 +38,13 @@ namespace EFWebApi.Controllers
 
         // POST api/<LibrosController>
         [HttpPost]
-        public IActionResult Post([FromBody] Libro value)
+        public IActionResult Post([FromBody] Libro value) 
         {
             try
             {
                 if(IsValid(value)) //validaciones de datos
                 {
-                    _repository.Create(value);
+                    _service.Create(value);
                     return Ok("Libro insertado.");
                 }
                 else
@@ -56,13 +57,34 @@ namespace EFWebApi.Controllers
                 return StatusCode(500, "Ha ocurrido un error interno.");
             }
         }
+        [HttpPut]
+        public IActionResult Put([FromBody] Libro value)
+        {
+            try
+            {
+                if (IsValid(value))
+                {
+                    _service.Update(value);
+                    return Ok("Libro actualizado con exito.");
+                }
+                else
+                {
+                    return BadRequest("Los datos no son correctos o incompletos.");
+                }
+                
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ha ocurrido un error interno.");
+            }
+        }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
             {
-                _repository.Delete(id);
+                _service.Delete(id);
                 return Ok("Libro borrado.");
             }
             catch (Exception)

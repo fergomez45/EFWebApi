@@ -1,5 +1,6 @@
 using EFWebApi.Data.Models;
 using EFWebApi.Data.Repository;
+using EFWebApi.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString
 ("DefaultConnection")));
 
 builder.Services.AddScoped<ILibroRepository, LibroRepository>();
+builder.Services.AddScoped<ILibroService, LibroService>();
 
 
 builder.Services.AddControllers();

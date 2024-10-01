@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "EFWebApi.Controllers.LibrosController",
+    "Method": "Put",
+    "RelativePath": "api/Libros",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "EFWebApi.Data.Models.Libro",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EFWebApi.Controllers.LibrosController",
     "Method": "Delete",
     "RelativePath": "api/Libros/{id}",
     "HttpMethod": "DELETE",
